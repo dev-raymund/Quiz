@@ -64,30 +64,36 @@ const Quiz = () => {
     }
 
     return (
-        <div className='container'>
-            <h1>Quiz App</h1>
-            <hr />
+        <div className='container pt-100 pb-100'>
+            <div className='card p-50 w-50'>
+                <h1 className='text-black mb-20 text-center'>Quiz App</h1>
         
-            {result 
-                ? <div></div> 
-                : <div>
-                    <h2>{index + 1}. {question.question}</h2>
-                    <ul>
-                        <li ref={option_1} onClick={(e) => {checkAnswer(e, 1)}}>{question.opttion_1}</li>
-                        <li ref={option_2} onClick={(e) => {checkAnswer(e, 2)}}>{question.opttion_2}</li>
-                        <li ref={option_3} onClick={(e) => {checkAnswer(e, 3)}}>{question.opttion_3}</li>
-                        <li ref={option_4} onClick={(e) => {checkAnswer(e, 4)}}>{question.opttion_4}</li>
-                    </ul>
-                    <button onClick={next}>Next</button>
-                    <div className='index'>{index + 1} of {data.length} questions</div>
-                </div>}
+                {result 
+                    ? <div></div> 
+                    : <div>
+                        <h2 className='text-black'>{index + 1}. {question.question}</h2>
+                        <ul className='pl-20'>
+                            <li className='text-black' ref={option_1} onClick={(e) => {checkAnswer(e, 1)}}>{question.option_1}</li>
+                            <li className='text-black' ref={option_2} onClick={(e) => {checkAnswer(e, 2)}}>{question.option_2}</li>
+                            <li className='text-black' ref={option_3} onClick={(e) => {checkAnswer(e, 3)}}>{question.option_3}</li>
+                            <li className='text-black' ref={option_4} onClick={(e) => {checkAnswer(e, 4)}}>{question.option_4}</li>
+                        </ul>
 
-            {result 
-                ? <div>
-                        <h2>You Scored {score} out of {data.length}</h2>
-                        <button onClick={reset}>Reset</button>
-                    </div> 
-                : <div></div>}
+                        <div className='center-items'>
+                            <button onClick={next}>Next</button>
+                            <div className='index'>
+                                <p>{index + 1} of {data.length} questions</p>
+                            </div>
+                        </div>
+                    </div>}
+
+                {result 
+                    ? <div className='center-items'>
+                            <h2>You Scored {score} out of {data.length}</h2>
+                            <button onClick={reset}>Reset</button>
+                        </div> 
+                    : <div></div>}
+            </div>
         </div>
     )
 }
