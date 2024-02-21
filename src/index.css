@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 * {
     margin: 0;
@@ -77,17 +77,11 @@ body {
 ul li {
     font-family: "Lato", sans-serif;
     cursor: pointer;
-    list-style: none;
     font-size: 18px;
     line-height: 25px;
     font-weight: bold;
     padding: 10px 0;
-    margin-bottom: 10px;
-}
-
-ul li:hover {
-    color: #505050;
-    background-color: #eee;
+    margin: 10px 0;
 }
 
 p {
@@ -135,23 +129,60 @@ button {
     margin: 0 auto;
 }
 
+.card-header,
+.card-body {
+    border-bottom: 2px solid #acacac;
+}
+
+.card-header,
+.card-body,
+.card-footer {
+    padding: 20px;
+}
+
 .text-center,
 .center-items {
     text-align: center;
 }
 
+.correct,
+.wrong {
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .correct {
     background-color: #9bffa0;
-    padding: 10px;
-    margin-left: -10px;
     border: 1px solid rgb(0, 177, 9);
-    border-radius: 10px;
 }
 
 .wrong {
     background-color: #f7a8a8;
-    padding: 10px;
-    margin-left: -10px;
     border: 1px solid #f00;
-    border-radius: 10px;
+}
+
+/* Position */
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+/* Flex */
+.flex {
+    display: flex;
+}
+
+.flex-item-center {
+    align-items: center;
+}
+
+.flex-space-between {
+    justify-content: space-between;
+}
+
+.flex-end {
+    justify-content: flex-end;
 }

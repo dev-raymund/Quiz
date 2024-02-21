@@ -1,82 +1,52 @@
-export const data = [
+export const questions = [
     {
         question: "Which device is required for Internet connection?",
-        option_1: "Modem",
-        option_2: "Router",
-        option_3: "LAN Cable",
-        option_4: "Pen Drive",
-        answer: 1
+        options: ["Modem", "Router", "LAN Cable", "Pen Drive"],
+        answer: "Modem"
     },
     {
         question: "Which continent has the highest number of countries?",
-        option_1: "Asia",
-        option_2: "Europe",
-        option_3: "North America",
-        option_4: "Africa",
-        answer: 4
+        options: ["Asia", "Europe", "North America", "Africa"],
+        answer: "Africa"
     },
     {
         question: "What is the chemical symbol for gold?",
-        option_1: "Au",
-        option_2: "Ag",
-        option_3: "Fe",
-        option_4: "Cu",
-        answer: 1
+        options: ["Au", "Ag", "Fe", "Cu"],
+        answer: "Au"
     },
     {
         question: "Who wrote 'To Kill a Mockingbird'?",
-        option_1: "Harper Lee",
-        option_2: "J.K. Rowling",
-        option_3: "Ernest Hemingway",
-        option_4: "Jane Austen",
-        answer: 1
+        options: ["Harper Lee", "J.K. Rowling", "Ernest Hemingway", "Jane Austen"],
+        answer: "Harper Lee"
     },
     {
         question: "What is the capital of France?",
-        option_1: "Berlin",
-        option_2: "London",
-        option_3: "Madrid",
-        option_4: "Paris",
-        answer: 4
+        options: ["Berlin", "London", "Madrid", "Paris"],
+        answer: "Madrid"
     },
     {
         question: "Which planet is known as the Red Planet?",
-        option_1: "Mars",
-        option_2: "Jupiter",
-        option_3: "Venus",
-        option_4: "Mercury",
-        answer: 1
+        options: ["Mars", "Jupiter", "Venus", "Mercury"],
+        answer: "Mars"
     },
     {
         question: "What year did the Titanic sink?",
-        option_1: "1912",
-        option_2: "1920",
-        option_3: "1905",
-        option_4: "1898",
-        answer: 1
+        options: ["1912", "1920", "1905", "1898"],
+        answer: "1912"
     },
     {
         question: "Who painted the Mona Lisa?",
-        option_1: "Leonardo da Vinci",
-        option_2: "Vincent van Gogh",
-        option_3: "Pablo Picasso",
-        option_4: "Michelangelo",
-        answer: 1
+        options: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
+        answer: "Leonardo da Vinci"
     },
     {
         question: "What is the largest mammal?",
-        option_1: "Elephant",
-        option_2: "Whale",
-        option_3: "Giraffe",
-        option_4: "Rhinoceros",
-        answer: 2
+        options: ["Elephant", "Whale", "Giraffe", "Rhinoceros"],
+        answer: "Whale"
     },
     {
         question: "What is the chemical symbol for water?",
-        option_1: "Wa",
-        option_2: "W",
-        option_3: "H2O",
-        option_4: "Hy",
-        answer: 3
+        options: ["Wa", "W", "H2O", "Hy"],
+        answer: "H2O"
     }
 ]
