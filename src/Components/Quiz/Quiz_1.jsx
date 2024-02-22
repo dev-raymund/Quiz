@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react'
 import './Quiz.css'
-import { questions } from '../../assets/data'
+import { questions } from '../../assets/quiz_data_1'
 
-const Quiz = () => {
+const Quiz_1 = () => {
 
     let [index, setIndex] = useState(0)
     let [question, setQuestion] = useState(questions[index])
@@ -39,7 +39,7 @@ const Quiz = () => {
             setQuestion(questions[index])
             setLock(false)
 
-            const answerItems = document.querySelectorAll('.answer-item');
+            const answerItems = document.querySelectorAll('.answer-item')
 
             answerItems.forEach((answerItem, index) => {
                 answerItem.classList.remove('wrong')
@@ -61,14 +61,16 @@ const Quiz = () => {
             <div className='card w-50'>
 
                 <div className='card-header'>
-                    <h1 className='text-black'>Quiz App</h1>
+                    <h1 className='text-black'>Quiz 1</h1>
                 </div>
 
                 <div className='card-body'>
 
                     {result 
                         ?
-                            <div></div> 
+                            <div className='center-items'>
+                                <h2>You Scored {score} out of {questions.length}</h2>
+                            </div> 
                         :
                             <div>
                                 <h2 className='text-black'>{index + 1}. {question.question}</h2>
@@ -87,14 +89,6 @@ const Quiz = () => {
                             </div>
                     }
 
-                    {result 
-                        ?
-                            <div className='center-items'>
-                                <h2>You Scored {score} out of {questions.length}</h2>
-                            </div> 
-                        : 
-                            <div></div>
-                    }
                     
                 </div>
 
@@ -121,4 +115,4 @@ const Quiz = () => {
     )
 }
 
-export default Quiz
+export default Quiz_1
