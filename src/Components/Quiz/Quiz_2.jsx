@@ -7,7 +7,7 @@ const Quiz_2 = () => {
     let [index, setIndex] = useState(0)
     let [sentence, setSentence] = useState(sentences[index])
     let [answer, setAnswer] = useState(null)
-    let [lock, setLock] = useState(false) // Lock answer after click
+    // let [lock, setLock] = useState(false) // Lock answer after click
     let [score, setScore] = useState(0)
     let [result, setResult] = useState(false)
 
@@ -34,11 +34,15 @@ const Quiz_2 = () => {
 
     }
 
+    const compareArrays = (a, b) => {
+        return JSON.stringify(a) === JSON.stringify(b);
+    }
+
     const next = () => {
 
-        setLock(true)
+        // setLock(true)
 
-        if(sentence.answer === answerTemp) {
+        if(compareArrays(sentence.words, answerTemp)) {
             setScore(prev => prev + 1)
         }
 
@@ -49,7 +53,7 @@ const Quiz_2 = () => {
 
         setIndex(++index)
         setSentence(sentences[index])
-        setLock(false)
+        // setLock(false)
 
         const answerItems = document.querySelectorAll('.word')
 
@@ -63,7 +67,7 @@ const Quiz_2 = () => {
         setIndex(0)
         setSentence(sentences[0])
         setScore(0)
-        setLock(false)
+        // setLock(false)
         setResult(false)
     }
 
@@ -77,8 +81,6 @@ const Quiz_2 = () => {
         const inputValue = e.target.value - 1
 
         const wordIndex = wordsBlankIndex()[inputValue]
-
-        console.log(wordsBlankIndex())
 
         if(undefined !== wordIndex) {
 
@@ -112,7 +114,7 @@ const Quiz_2 = () => {
                             <div>
                                 <h2 className='text-black'>{index + 1}. {structuredSentence()}.</h2>
                                 <ul className='pl-20'>
-                                    {sentence.words.map((word, index) => 
+                                    {sentence.shuffleWords.map((word, index) => 
                                         <li 
                                             className={`word-item text-black`} 
                                             key={word}

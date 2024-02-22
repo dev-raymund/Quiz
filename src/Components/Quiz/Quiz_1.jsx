@@ -24,7 +24,6 @@ const Quiz_1 = () => {
                 setLock(true)
             }
         }
-
     }
 
     const next = () => {

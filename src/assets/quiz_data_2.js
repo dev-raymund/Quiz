@@ -1,13 +1,13 @@
 export const sentences = [
     {
         sentence: "It's not possible to convince a monkey to give you a banana by promising it infinite bananas when they die",
-        words: ["possible", "convince", "monkey", "banana", "infinite", "die"],
-        answer: ["convince", "monkey", "possible", "die", "infinite", "banana"]
+        words: ["possible", "convince", "monkey", "promising", "infinite", "bananas", "die"],
+        shuffleWords: ["monkey", "infinite", "possible", "promising", "convince", "die", "bananas"]
     },
     {
         sentence: "It's much more difficult to play tennis with a bowling ball than it is to bowl with a tennis ball",
-        words: ["much", "play", "difficult", "bowl", "bowling"],
-        answer: ["much", "difficult", "play", "bowling", "bowl"]
+        words: ["much", "difficult", "play", "bowling", "bowl"],
+        shuffleWords: ["bowl", "bowling", "difficult", "play", "much"]
     },
     // {
     //     sentence: "Wisdom is easily acquired when hiding under the bed with a saucepan on your head",
