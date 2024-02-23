@@ -17,6 +17,8 @@ const Quiz_2 = () => {
 
     const structuredSentence = () => {
 
+        console.log(explodedSentence)
+
         if (sentence.words && sentence.words.length > 0) {
 
             const replacedSentence = explodedSentence.map((word, index) => {
@@ -39,6 +41,9 @@ const Quiz_2 = () => {
     }
 
     const next = () => {
+
+        console.log(sentence.words)
+        console.log(answerTemp)
 
         // setLock(true)
 
@@ -116,7 +121,7 @@ const Quiz_2 = () => {
                                 <ul className='pl-20'>
                                     {sentence.shuffleWords.map((word, index) => 
                                         <li 
-                                            className={`word-item text-black`} 
+                                            className={`word-item text-black flex gap-10`} 
                                             key={word}
                                         >
                                             <input 
@@ -125,7 +130,8 @@ const Quiz_2 = () => {
                                                 key={`word-item-${index}`}
                                                 min={1} 
                                                 onChange={(e) => {populateAnswer(e, word)}}
-                                            /> {word}
+                                            />
+                                            <p>{word}</p>
                                         </li>
                                     )}
                                 </ul>
