@@ -5,7 +5,7 @@ import Quiz_2 from './Components/Quiz/Quiz_2'
 const App = () => {
   return (
     <div>
-      <Quiz_1 />
+      <Quiz_2 />
     </div>
   )
 }

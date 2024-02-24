@@ -11,23 +11,22 @@ const Quiz_2 = () => {
     let [score, setScore] = useState(0)
     let [result, setResult] = useState(false)
 
-    const explodedSentence = sentence.sentence.split(' ')
+    // const explodedSentence = sentence.sentence.split(' ')
+    const explodedSentence = sentence.sentence.split(/\b|[,.\s]/)
     const words = sentence.words
     const answerTemp = []
 
     const structuredSentence = () => {
 
-        console.log(explodedSentence)
-
         if (sentence.words && sentence.words.length > 0) {
 
             const replacedSentence = explodedSentence.map((word, index) => {
-                if (sentence.words.includes(word.toLowerCase())) {
+                if (sentence.words.includes(word)) {
                     return <span className={`blank w-100 word item-${index}`} key={index}></span>
                 } else {
                     return <span key={index}>{word} </span>
                 }
-            });
+            })
             return replacedSentence
 
         } else {
@@ -41,9 +40,6 @@ const Quiz_2 = () => {
     }
 
     const next = () => {
-
-        console.log(sentence.words)
-        console.log(answerTemp)
 
         // setLock(true)
 
@@ -98,9 +94,6 @@ const Quiz_2 = () => {
             document.querySelector(`.word.item-${wordIndex}`).textContent = word
         }
     }
-
-
-    
 
     return (
         <div className='container pt-100 pb-100'>
