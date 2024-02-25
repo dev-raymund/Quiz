@@ -1,9 +1,11 @@
 export const sentences = [
-    {
-        sentence: "It's not possible to convince a monkey to give you a banana by promising it infinite bananas when they die",
-        words: ["possible", "convince", "monkey", "promising", "infinite", "bananas", "die"],
-        shuffleWords: ["monkey", "infinite", "possible", "promising", "convince", "die", "bananas"]
-    },
+    "It's not possible to convince a monkey to give you a banana by promising it infinite bananas when they die",
+    "It's much more difficult to play tennis with a bowling ball than it is to bowl with a tennis ball"
+    // {
+    //     sentence: "It's not possible to convince a monkey to give you a banana by promising it infinite bananas when they die",
+    //     words: ["possible", "convince", "monkey", "promising", "infinite", "bananas", "die"],
+    //     shuffleWords: ["monkey", "infinite", "possible", "promising", "convince", "die", "bananas"]
+    // },
     // {
     //     sentence: "It's much more difficult to play tennis with a bowling ball than it is to bowl with a tennis ball",
     //     words: ["much", "difficult", "play", "bowling", "bowl"],
