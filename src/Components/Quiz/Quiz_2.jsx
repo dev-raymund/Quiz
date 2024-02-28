@@ -5,20 +5,21 @@ import { sentences } from '../../assets/quiz_data_2'
 const Quiz_2 = () => {
 
     let [index, setIndex] = useState(0)
-    let [sentence, setSentence] = useState(sentences[index])
+    let [sentence, setSentence] = useState(sentences[index].split(' '))
     let [words, setWords] = useState([])
-    let [answer, setAnswer] = useState([])
+    let [answer, setAnswer] = useState([]) // Answer in the sentence
+    let [userAnswer, setUserAnswer] = useState([])
     let [score, setScore] = useState(0)
     let [result, setResult] = useState(false)
 
     // Returns a half random item in array
     const getRandomItems = (array) => {
 
-        const countItems = array.length
+        const countItems = ((array.length / 2) > 9) ? 9 : array.length / 2 // not exceed to 9
         const randomItems = []
     
-        for (let i = 0; i < countItems / 2; i++) {
-            const randomIndex = Math.floor(Math.random() * countItems)
+        for (let i = 0; i < countItems; i++) {
+            const randomIndex = Math.floor(Math.random() * array.length)
 
             if(!randomItems.includes(array[randomIndex])) {
                 randomItems.push(array[randomIndex])
@@ -41,40 +42,34 @@ const Quiz_2 = () => {
         })
     }
 
-    const explodedSentence = sentence.split(' ')
-    const mergedRandomWords = getRandomItems(explodedSentence)
-    const answerTemp = []
+    const next = () => {
 
-    const next = (words) => {
-
-        // setLock(true)
-
-        if(compareArrays(words, answerTemp)) {
-            setScore(prev => prev + 1)
+        if(userAnswer.length > 0) {
+            if(compareArrays(answer, userAnswer)) {
+                setScore(prev => prev + 1)
+            }
+    
+            if(index === sentences.length - 1) {
+                setResult(true)
+                return 0
+            }
+    
+            setIndex(++index)
+            setSentence(sentences[index].split(' '))
+            setWords(getRandomItems(sentence))
+    
+            const answerItems = document.querySelectorAll('.word')
+    
+            answerItems.forEach((answerItem, index) => {
+                answerItem.textContent = ''
+            })
         }
-
-        if(index === sentences.length - 1) {
-            setResult(true)
-            return 0
-        }
-
-        setIndex(++index)
-        setSentence(sentences[index])
-        // setLock(false)
-
-        const answerItems = document.querySelectorAll('.word')
-
-        answerItems.forEach((answerItem, index) => {
-            answerItem.textContent = ''
-        })
-        
     }
 
     const reset = () => {
         setIndex(0)
-        setSentence(sentences[0])
+        setSentence(sentences[0].split(' '))
         setScore(0)
-        // setLock(false)
         setResult(false)
     }
 
@@ -84,7 +79,7 @@ const Quiz_2 = () => {
 
             const checkedWords = []
 
-            return explodedSentence.map((word, index) => {
+            return sentence.map((word, index) => {
 
                 if(checkedWords.includes(word)) {
 
@@ -108,18 +103,23 @@ const Quiz_2 = () => {
 
     const populateAnswer = (e, word) => {
 
-        const inputValue = e.target.value - 1
-        const wordIndex = mapItemsInArray(explodedSentence, words)
-
-        sortNumbers(wordIndex)
+        const wordIndex = mapItemsInArray(sentence, words)
 
         if(undefined !== wordIndex) {
 
-            if(answerTemp.includes(word)) {
-                answerTemp.splice(answerTemp.indexOf(word), 1)
-            }
+            const inputValue = e.target.value - 1
 
-            answerTemp.splice(inputValue, 0, word)
+            const tempUserAnswer = [...userAnswer]
+
+            if(tempUserAnswer.includes(word)) {
+                tempUserAnswer.splice(tempUserAnswer.indexOf(word), 1)
+            }
+            tempUserAnswer.splice(inputValue, 0, word)
+
+            setUserAnswer(tempUserAnswer)
+
+            sortNumbers(wordIndex)
+            setAnswer(wordIndex.map(i => sentence[i]))
 
             const checkSpan = document.querySelector(`.word.item-${wordIndex[inputValue]}`)
             if(checkSpan) {
@@ -129,8 +129,8 @@ const Quiz_2 = () => {
     }
 
     useEffect(() => {
-        setWords(mergedRandomWords)
-    }, [])
+        setWords(getRandomItems(sentence))
+    }, [sentence])
 
     return (
         <div className='container pt-100 pb-100'>
@@ -159,6 +159,11 @@ const Quiz_2 = () => {
                                                 className='word-item-input' 
                                                 key={`word-item-${index}`}
                                                 min={1} 
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                                                        e.preventDefault();
+                                                    }
+                                                }}
                                                 onChange={(e) => {populateAnswer(e, word)}}
                                             />
                                             <p>{word}</p>
@@ -178,10 +183,10 @@ const Quiz_2 = () => {
                         :
                             <div className='flex flex-item-center flex-space-between'>
                                 <div className='index'>
-                                    <p>{index + 1} of {sentences.length} sentences</p>
+                                    <p>Item {index + 1} of {sentences.length}</p>
                                 </div>
 
-                                <button onClick={(e) => {next(questionRandomWords)}}>Next</button>
+                                <button onClick={next}>Next</button>
                             </div> 
                     }
                     

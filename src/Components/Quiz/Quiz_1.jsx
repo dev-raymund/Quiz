@@ -73,7 +73,7 @@ const Quiz_1 = () => {
                         :
                             <div>
                                 <h2 className='text-black'>{index + 1}. {question.question}</h2>
-                                <ul className='pl-20'>
+                                <ul className='p-0'>
 
                                     {question.options.map((option, index) => 
                                         <li 
@@ -101,7 +101,7 @@ const Quiz_1 = () => {
                         :
                             <div className='flex flex-item-center flex-space-between'>
                                 <div className='index'>
-                                    <p>{index + 1} of {questions.length} questions</p>
+                                    <p>Item {index + 1} of {questions.length}</p>
                                 </div>
         
                                 <button onClick={next}>Next</button>
